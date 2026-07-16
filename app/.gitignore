@@ -1,0 +1,13 @@
+# Xcode / macOS build artifacts
+.DS_Store
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcarchive
+*.ipa
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.hmap
+*.moved-aside
