@@ -1,0 +1,26 @@
+# Copy this file to config.toml and fill in your real values.
+# config.toml is gitignored so your secrets never get committed.
+#
+# Get these four values from developer.x.com:
+#   1. Create a Project + App
+#   2. Set the App's User authentication settings to "Read and Write"
+#   3. Under "Keys and tokens": generate API Key/Secret and Access Token/Secret
+#
+# NOTE: after changing the app to Read and Write, you must REGENERATE the
+# Access Token & Secret — tokens minted while the app was read-only stay
+# read-only and posting will fail with a 403.
+
+[auth]
+api_key            = "PASTE_API_KEY"
+api_secret         = "PASTE_API_SECRET"
+access_token       = "PASTE_ACCESS_TOKEN"
+access_token_secret = "PASTE_ACCESS_TOKEN_SECRET"
+
+[behavior]
+# Poll this many minutes of mentions history on first run (avoids replying
+# to your entire backlog). Ignored once a since_id is stored in state/.
+mentions_lookback_minutes = 60
+
+# If true, the reply handler only logs what it *would* post and sends nothing.
+# Flip to false when you're confident. You can also override per-run with --live.
+dry_run = true

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  launchd job: poll X mentions every 15 minutes and reply per respond.py.
+
+  SETUP on the iMac:
+    1. Edit the paths below:
+         - EDIT_ME_PYTHON  -> output of `which python3` (ideally a venv python)
+         - EDIT_ME_PROJECT -> absolute path to this x-poster folder
+    2. Remove `--live` from ProgramArguments until you've confirmed dry-runs
+       look right, then add it back to actually post.
+    3. Install:
+         cp launchd/com.xposter.mentions.plist ~/Library/LaunchAgents/
+         launchctl load ~/Library/LaunchAgents/com.xposter.mentions.plist
+    4. Check it:
+         launchctl list | grep xposter
+         tail -f /tmp/xposter.mentions.log
+    5. To stop:
+         launchctl unload ~/Library/LaunchAgents/com.xposter.mentions.plist
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.xposter.mentions</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>EDIT_ME_PYTHON</string>
+        <string>-m</string>
+        <string>x_poster.cli</string>
+        <string>mentions</string>
+        <!-- <string>- -live</string>  uncomment (no space) to post for real -->
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>EDIT_ME_PROJECT</string>
+
+    <key>StartInterval</key>
+    <integer>900</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/xposter.mentions.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/xposter.mentions.err</string>
+</dict>
+</plist>

@@ -1,0 +1,8 @@
+# Never commit real credentials or runtime state
+config.toml
+.env
+state/*.json
+__pycache__/
+*.pyc
+.venv/
+venv/
