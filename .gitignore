@@ -1,0 +1,10 @@
+# Scratch / temp files — never commit these (history is permanent and public)
+_*
+*.tmp
+*.bak
+*.swp
+.DS_Store
+
+# Local working dirs
+scratch/
+tmp/
