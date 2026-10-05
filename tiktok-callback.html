@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><title>RRL Poster — TikTok Authorization</title>
+<style>body{font-family:ui-monospace,Menlo,monospace;max-width:640px;margin:60px auto;padding:0 20px;color:#3a3226;background:#faf6ec;line-height:1.6}code{background:#efe8d8;padding:8px 12px;border-radius:6px;display:block;word-break:break-all;font-size:15px;margin:12px 0}</style></head><body>
+<h2>RRL Poster — TikTok authorization</h2>
+<p id="msg">Waiting for authorization code…</p>
+<code id="code"></code>
+<p style="color:#8a7a5c;font-size:13px">Internal tool of River Road Labs. Paste this code back into the RRL Poster CLI.</p>
+<script>
+const p = new URLSearchParams(location.search);
+const c = p.get("code");
+if (c) { document.getElementById("msg").textContent = "Authorization code (paste into the CLI):"; document.getElementById("code").textContent = c; }
+else if (p.get("error")) { document.getElementById("msg").textContent = "Authorization failed: " + p.get("error_description" ) || p.get("error"); }
+</script></body></html>
